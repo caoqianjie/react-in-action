@@ -1,19 +1,27 @@
 require('normalize.css/normalize.css');
-require('styles/App.css');
-
+require('styles/main.scss');
 import React from 'react';
-
-let yeomanImage = require('../images/yeoman.png');
+//获取图片相关的数据
+let imageDatas = require('data/imageData.json');
+// 将图片名信息转成图片url路径信息
+let getImageUrl = imageDataArr => {
+    imageDataArr.forEach(item => {
+        item.imageUrl = require('../images/'+item.filename);
+    })
+};
+getImageUrl(imageDatas);
 
 class AppComponent extends React.Component {
   render() {
     return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
-        <span>hello world</span>
-        <h1>我来了，这么牛逼啊我的天</h1>
-      </div>
+      <section className="stage">
+          <section className="img-sec">
+
+          </section>
+          <nav className="controller-nav ">
+
+          </nav>
+      </section>
     );
   }
 }
